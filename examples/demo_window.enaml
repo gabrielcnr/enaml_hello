@@ -1,0 +1,11 @@
+from enaml.widgets.api import MainWindow, Container
+from enaml_hello.widgets.hello import Hello
+
+
+enamldef DemoWindow(MainWindow):
+    title = 'Enaml Hello Plugin Demo'
+
+    Container:
+
+        Hello:
+            name = 'World'
