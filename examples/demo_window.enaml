@@ -1,11 +1,15 @@
-from enaml.widgets.api import MainWindow, Container
-from enaml_hello.widgets.hello import Hello
-
+from enaml.widgets.api import MainWindow, Container, Field, Hello
 
 enamldef DemoWindow(MainWindow):
     title = 'Enaml Hello Plugin Demo'
 
+    initial_size = (300, 80)
+
     Container:
 
+        Field: field:
+            text = 'World'
+            submit_triggers = ['auto_sync', 'return_pressed', 'lost_focus']
+
         Hello:
-            name = 'World'
+            name << field.text
